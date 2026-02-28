@@ -124,7 +124,7 @@ resource "aws_eks_node_group" "techpilotz" {
     min_size     = 3
   }
 
-  instance_types = ["t2.medium"]
+  instance_types = ["t3.medium"]
 
   remote_access {
     ec2_ssh_key               = var.ssh_key_name
