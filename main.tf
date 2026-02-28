@@ -102,12 +102,13 @@ resource "aws_eks_cluster" "techpilotz" {
   }
 }
 
-resource "aws_eks_addon" "ebs_csi_driver" {
-  cluster_name                = aws_eks_cluster.techpilotz.name
-  addon_name                  = "aws-ebs-csi-driver"
-  resolve_conflicts_on_create = "OVERWRITE"
-  resolve_conflicts_on_update = "OVERWRITE"
-}
+
+# resource "aws_eks_addon" "ebs_csi_driver" {
+#   cluster_name    = aws_eks_cluster.techpilotz.name
+#   addon_name      = "aws-ebs-csi-driver"
+#   resolve_conflicts_on_create = "OVERWRITE"
+#   resolve_conflicts_on_update = "OVERWRITE"
+# }
 
 # --- EKS Node Group ---
 
@@ -187,3 +188,5 @@ resource "aws_iam_role_policy_attachment" "techpilotz_node_group_ebs_policy" {
   role       = aws_iam_role.techpilotz_node_group_role.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
 }
+
+
